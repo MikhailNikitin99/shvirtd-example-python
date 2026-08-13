@@ -12,7 +12,9 @@ services:
         ipv4_address: 172.20.0.10
     restart: on-failure
   web:
-    image: ${WEB_IMAGE:-cr.yandex/crp8qecreoj84bkjau6r/python_app:latest}
+    build:
+      context: .
+      dockerfile: Dockerfile.python
     networks:
       backend:
         ipv4_address: 172.20.0.5
